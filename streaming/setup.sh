@@ -51,7 +51,7 @@ source=${sourcetemplate/IOTHUBNAME/$iothubname}
 source=${source/IOTSAPKEY/$iothubkey}
 echo $source > source.json
 inputname=iotinput
-az stream-analytics input create --resource-group $rg --job-name $streamanalyticsname --name $inputname --properties "{\"type\":\"Stream\",\"datasource\":$source, \"serialization\":{\"type\":\"Json\",\"properties\":{\"encoding\":\"UTF8\"}}}" --output none
+az stream-analytics input create --resource-group $rg --job-name $streamanalyticsname --input-name $inputname --properties "{\"type\":\"Stream\",\"datasource\":$source, \"serialization\":{\"type\":\"Json\",\"properties\":{\"encoding\":\"UTF8\"}}}" --output none
 outputtemaplate=`cat outputtemplate.json`
 output=${outputtemaplate/STORAGEACCOUNTNAME/$storename}
 output=${output/STORAGEACCOUNTKEY/$storekey}
